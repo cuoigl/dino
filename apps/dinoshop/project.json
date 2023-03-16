@@ -16,10 +16,7 @@
         "tsConfig": "apps/dinoshop/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/dinoshop/src/favicon.ico", "apps/dinoshop/src/assets"],
-        "styles": [
-          "node_modules/bootstrap/scss/bootstrap.scss",
-          "apps/dinoshop/src/styles.scss"
-        ],
+        "styles": ["apps/dinoshop/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
