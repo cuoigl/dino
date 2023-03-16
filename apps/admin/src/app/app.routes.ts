@@ -6,6 +6,9 @@ export const appRoutes: Route[] = [
   {
     path: '',
     component: ShellComponent,
-    children: [{ path: 'dashboard', component: DashboardComponent }],
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'products', component: DashboardComponent },
+    ],
   },
 ];
