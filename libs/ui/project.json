@@ -5,22 +5,6 @@
   "sourceRoot": "libs/ui/src",
   "prefix": "dino",
   "targets": {
-    "build": {
-      "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
-      "options": {
-        "project": "libs/ui/ng-package.json"
-      },
-      "configurations": {
-        "production": {
-          "tsConfig": "libs/ui/tsconfig.lib.prod.json"
-        },
-        "development": {
-          "tsConfig": "libs/ui/tsconfig.lib.json"
-        }
-      },
-      "defaultConfiguration": "production"
-    },
     "test": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],

@@ -1,12 +1,6 @@
 # ui
 
-This library containes the ui components which are used in the dino
-
-# Banner
-
-# Slider
-
-# Stepper
+This library was generated with [Nx](https://nx.dev).
 
 ## Running unit tests
 
