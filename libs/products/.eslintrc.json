@@ -26,8 +26,7 @@
             "prefix": "dino",
             "style": "kebab-case"
           }
-        ],
-        "@typescript-eslint/ban-types": "off"
+        ]
       },
       "extends": [
         "plugin:@nrwl/nx/angular",

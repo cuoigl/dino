@@ -29,6 +29,7 @@ export class CategoriesFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       icon: ['', Validators.required],
+      color: ['#fff'],
     });
 
     this._checkEditMode();
@@ -44,6 +45,7 @@ export class CategoriesFormComponent implements OnInit {
       id: this.currentCategoryId,
       name: this.categoryForm.name.value,
       icon: this.categoryForm.icon.value,
+      color: this.categoryForm.color.value,
     };
     if (this.editmode) {
       this._updateCategory(category);
@@ -54,19 +56,19 @@ export class CategoriesFormComponent implements OnInit {
 
   private _addCategory(category: Category) {
     this.categoriesService.createCategory(category).subscribe(
-      (response) => {
+      (category: Category) => {
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
-          detail: 'Category is created!',
+          detail: `Category ${category.name} is created!`,
         });
         timer(2000)
           .toPromise()
-          .then((done) => {
+          .then(() => {
             this.location.back();
           });
       },
-      (error) => {
+      () => {
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -78,19 +80,19 @@ export class CategoriesFormComponent implements OnInit {
 
   private _updateCategory(category: Category) {
     this.categoriesService.updateCategory(category).subscribe(
-      (response) => {
+      (category: Category) => {
         this.messageService.add({
           severity: 'success',
           summary: 'Success',
-          detail: 'Category is updated!',
+          detail: `Category  ${category.name} is updated!`,
         });
         timer(2000)
           .toPromise()
-          .then((done) => {
+          .then(() => {
             this.location.back();
           });
       },
-      (error) => {
+      () => {
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -108,6 +110,7 @@ export class CategoriesFormComponent implements OnInit {
         this.categoriesService.getCategory(params.id).subscribe((category) => {
           this.categoryForm.name.setValue(category.name);
           this.categoryForm.icon.setValue(category.icon);
+          this.categoryForm.color.setValue(category.color);
         });
       }
     });

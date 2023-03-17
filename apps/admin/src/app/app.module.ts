@@ -17,6 +17,8 @@ import { CategoriesListComponent } from './categories/categories-list/categories
 import { CategoriesService } from '@dino/products';
 import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
@@ -24,8 +26,7 @@ import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ColorPickerModule } from 'primeng/colorpicker';
 
 const UX_MODULE = [
   CardModule,
@@ -35,6 +36,7 @@ const UX_MODULE = [
   InputTextModule,
   ToastModule,
   ConfirmDialogModule,
+  ColorPickerModule,
 ];
 
 @NgModule({
