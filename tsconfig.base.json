@@ -10,16 +10,33 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@dino/orders": ["libs/orders/src/index.ts"],
-      "@dino/products": ["libs/products/src/index.ts"],
-      "@dino/ui": ["libs/ui/src/index.ts"],
-      "@dino/users": ["libs/users/src/index.ts"]
+      "@dino/orders": [
+        "libs/orders/src/index.ts"
+      ],
+      "@dino/products": [
+        "libs/products/src/index.ts"
+      ],
+      "@dino/ui": [
+        "libs/ui/src/index.ts"
+      ],
+      "@dino/users": [
+        "libs/users/src/index.ts"
+      ],
+      "@env/*": [
+        "environments/*"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

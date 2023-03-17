@@ -4,39 +4,35 @@ import { Observable } from 'rxjs';
 
 import { Category } from '../models/category';
 
+import { environment } from '@env/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class CategoriesService {
+  apiURLCategories = environment.apiUrl + 'categories';
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>('http://localhost:3000/api/v1/categories');
+    return this.http.get<Category[]>(this.apiURLCategories);
   }
 
   getCategory(categoryId: string): Observable<Category> {
-    return this.http.get<Category>(
-      `http://localhost:3000/api/v1/categories/${categoryId}`
-    );
+    return this.http.get<Category>(`${this.apiURLCategories}/${categoryId}`);
   }
 
   createCategory(category: Category): Observable<Category> {
-    return this.http.post<Category>(
-      'http://localhost:3000/api/v1/categories',
-      category
-    );
+    return this.http.post<Category>(this.apiURLCategories, category);
   }
 
   updateCategory(category: Category): Observable<Category> {
     return this.http.put<Category>(
-      'http://localhost:3000/api/v1/categories/' + category.id,
+      `${this.apiURLCategories}/${category.id}`,
       category
     );
   }
 
   deleteCategory(catelogyId: string): Observable<any> {
-    return this.http.delete<any>(
-      `http://localhost:3000/api/v1/categories/${catelogyId}`
-    );
+    return this.http.delete<any>(`${this.apiURLCategories}/${catelogyId}`);
   }
 }
