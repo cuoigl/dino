@@ -20,4 +20,10 @@ export class CategoriesService {
       category
     );
   }
+
+  deleteCategory(catelogyId: string): Observable<Object> {
+    return this.http.delete<Object>(
+      `http://localhost:3000/api/v1/categories/${catelogyId}`
+    );
+  }
 }
