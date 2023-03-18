@@ -66,7 +66,7 @@ export class ProductsFormComponent implements OnInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       richDescription: [''],
-      image: [''],
+      image: ['', Validators.required],
       brand: ['', Validators.required],
       price: ['', Validators.required],
       category: ['', Validators.required],
@@ -159,6 +159,8 @@ export class ProductsFormComponent implements OnInit {
           this.productForm.richDescription.setValue(product.richDescription);
           this.productForm.isFeatured.setValue(product.isFeatured);
           this.imageDisplay = product.image;
+          this.productForm.image.setValidators([]);
+          this.productForm.image.updateValueAndValidity();
         });
       }
     });
