@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { Product, ProductsService } from '@dino/products';
 
 @Component({
@@ -9,7 +11,10 @@ import { Product, ProductsService } from '@dino/products';
 export class ProductsListComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private productService: ProductsService) {}
+  constructor(
+    private productService: ProductsService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this._getProducts();
@@ -19,5 +24,9 @@ export class ProductsListComponent implements OnInit {
     this.productService.getProducts().subscribe((products) => {
       this.products = products;
     });
+  }
+
+  updateProduct(productId: string) {
+    this.router.navigateByUrl(`products/form/${productId}`);
   }
 }
