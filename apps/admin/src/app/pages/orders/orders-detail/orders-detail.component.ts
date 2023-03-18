@@ -3,7 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Order, OrdersService } from '@dino/orders';
+import { MessageService } from 'primeng/api';
+
 import { UsersService } from '@dino/users';
+
+import { ORDER_STATUS } from '../order.constants';
 
 @Component({
   selector: 'admin-orders-detail',
@@ -12,13 +16,18 @@ import { UsersService } from '@dino/users';
 })
 export class OrdersDetailComponent implements OnInit {
   order: Order;
+  orderStatuses = [];
+  selectedStatus: any;
+
   constructor(
     private ordersService: OrdersService,
     private usersService: UsersService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
+    this._mapOrderStatus();
     this._getOrder();
   }
 
@@ -27,12 +36,43 @@ export class OrdersDetailComponent implements OnInit {
       if (params.id) {
         this.ordersService.getOrder(params.id).subscribe((order) => {
           this.order = order;
+          this.selectedStatus = order.status;
         });
       }
     });
   }
 
+  _mapOrderStatus() {
+    this.orderStatuses = Object.keys(ORDER_STATUS).map((key) => {
+      return {
+        id: key,
+        name: ORDER_STATUS[key].label,
+      };
+    });
+  }
+
   getCountryName(countryKey: string) {
     if (countryKey) return this.usersService.getCountry(countryKey);
+  }
+
+  onStatusChange(event) {
+    this.ordersService
+      .updateOrder({ status: event.value }, this.order.id)
+      .subscribe(
+        () => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Order is updated!',
+          });
+        },
+        () => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Error',
+            detail: 'Order is not updated!',
+          });
+        }
+      );
   }
 }
