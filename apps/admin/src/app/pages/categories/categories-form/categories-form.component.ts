@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
+
 import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { timer } from 'rxjs';
 
+import { MessageService } from 'primeng/api';
+
 import { CategoriesService, Category } from '@dino/products';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'admin-categories-form',
@@ -25,7 +27,7 @@ export class CategoriesFormComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       icon: ['', Validators.required],
@@ -52,6 +54,10 @@ export class CategoriesFormComponent implements OnInit {
     } else {
       this._addCategory(category);
     }
+  }
+
+  onCancel() {
+    this.location.back();
   }
 
   private _addCategory(category: Category) {

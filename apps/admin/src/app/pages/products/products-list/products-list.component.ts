@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '@dino/products';
+import { Product, ProductsService } from '@dino/products';
 
 @Component({
   selector: 'admin-products-list',
@@ -7,7 +7,7 @@ import { ProductsService } from '@dino/products';
   styles: [],
 })
 export class ProductsListComponent implements OnInit {
-  products = [];
+  products: Product[] = [];
 
   constructor(private productService: ProductsService) {}
 
