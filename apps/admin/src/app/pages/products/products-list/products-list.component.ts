@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '@dino/products';
 
 @Component({
   selector: 'admin-products-list',
@@ -8,5 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsListComponent implements OnInit {
   products = [];
 
-  ngOnInit() {}
+  constructor(private productService: ProductsService) {}
+
+  ngOnInit() {
+    this._getProducts();
+  }
+
+  private _getProducts() {
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
+  }
 }
