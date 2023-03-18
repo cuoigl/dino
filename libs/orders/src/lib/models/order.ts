@@ -3,7 +3,7 @@ import { OrderItem } from './order-item';
 
 export class Order {
   id?: string;
-  orderItem?: OrderItem;
+  orderItems?: OrderItem;
   skippingAddress1?: string;
   skippingAddress2?: string;
   city?: string;

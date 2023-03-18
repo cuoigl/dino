@@ -23,7 +23,28 @@
     </p-fieldset>
 
     <p-fieldset styleClass="mb-4" legend="Order Items" [toggleable]="true">
-      Content
+      <div class="grid mb-5">
+        <div class="col-2 font-semibold">Name</div>
+        <div class="col-2 font-semibold">Brand</div>
+        <div class="col-2 font-semibold">Category</div>
+        <div class="col-2 font-semibold">Price</div>
+        <div class="col-2 font-semibold">Quantity</div>
+        <div class="col-2 font-semibold">Subtotal</div>
+      </div>
+      <div class="grid mb-5" *ngFor="let orderItem of order.orderItems">
+        <div class="col-2">{{ orderItem.product.name }}</div>
+        <div class="col-2">{{ orderItem.product.brand }}</div>
+        <div class="col-2">{{ orderItem.product.category.name }}</div>
+        <div class="col-2">{{ orderItem.product.price }}</div>
+        <div class="col-2">{{ orderItem.quantity }}</div>
+        <div class="col-2">
+          {{ orderItem.product.price * orderItem.quantity }}
+        </div>
+      </div>
+      <div class="grid" style="color: green">
+        <div class="col-2 col-offset-8 font-semibold">Total Price</div>
+        <div class="col-2 font-semibold">{{ order.totalPrice }}</div>
+      </div>
     </p-fieldset>
 
     <p-fieldset styleClass="mb-4" legend="Order Address" [toggleable]="true">
