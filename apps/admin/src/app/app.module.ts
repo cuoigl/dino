@@ -14,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //Services
 import { CategoriesService } from '@dino/products';
 
+//Modules
+import { UsersModule } from '@dino/users';
+
 //Pages Component
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
@@ -89,6 +92,7 @@ const UX_MODULE = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
     ...UX_MODULE,
+    UsersModule,
   ],
   providers: [CategoriesService, MessageService, ConfirmationService],
   bootstrap: [AppComponent],
