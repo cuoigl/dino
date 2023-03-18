@@ -9,16 +9,23 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ShellComponent } from './shared/shell/shell.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { CategoriesListComponent } from './categories/categories-list/categories-list.component';
-
-import { CategoriesService } from '@dino/products';
-import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//Services
+import { CategoriesService } from '@dino/products';
+
+//Pages Component
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProductsListComponent } from './pages/products/products-list/products-list.component';
+import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
+import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
+import { CategoriesListComponent } from './pages/categories/categories-list/categories-list.component';
+
+//Shared Component
+import { ShellComponent } from './shared/shell/shell.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+
+//PrimeNG Module
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
@@ -47,6 +54,8 @@ const UX_MODULE = [
     SidebarComponent,
     CategoriesListComponent,
     CategoriesFormComponent,
+    ProductsListComponent,
+    ProductsFormComponent,
   ],
   imports: [
     BrowserModule,
