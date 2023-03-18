@@ -9,6 +9,8 @@ import { CategoriesListComponent } from './pages/categories/categories-list/cate
 
 //Shared Component
 import { ShellComponent } from './shared/shell/shell.component';
+import { UsersListComponent } from './pages/users/users-list/users-list.component';
+import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 
 export const appRoutes: Route[] = [
   {
@@ -24,6 +26,10 @@ export const appRoutes: Route[] = [
       { path: 'categories', component: CategoriesListComponent },
       { path: 'categories/form', component: CategoriesFormComponent },
       { path: 'categories/form/:id', component: CategoriesFormComponent },
+
+      { path: 'users', component: UsersListComponent },
+      { path: 'users/form', component: UsersFormComponent },
+      { path: 'users/form/:id', component: UsersFormComponent },
     ],
   },
 ];

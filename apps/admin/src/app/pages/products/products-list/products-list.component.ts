@@ -36,7 +36,7 @@ export class ProductsListComponent implements OnInit {
 
   deleteProduct(productId: string) {
     this.confirmationService.confirm({
-      message: 'Do you want to delete this Product?',
+      message: 'Do you want to delete this product?',
       header: 'Delete Product',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
