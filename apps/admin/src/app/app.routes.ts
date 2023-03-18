@@ -1,3 +1,4 @@
+import { OrdersListComponent } from './pages/orders/orders-list/orders-list.component';
 import { Route } from '@angular/router';
 
 //Pages Component
@@ -11,6 +12,7 @@ import { CategoriesListComponent } from './pages/categories/categories-list/cate
 import { ShellComponent } from './shared/shell/shell.component';
 import { UsersListComponent } from './pages/users/users-list/users-list.component';
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
+import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 
 export const appRoutes: Route[] = [
   {
@@ -26,6 +28,9 @@ export const appRoutes: Route[] = [
       { path: 'categories', component: CategoriesListComponent },
       { path: 'categories/form', component: CategoriesFormComponent },
       { path: 'categories/form/:id', component: CategoriesFormComponent },
+
+      { path: 'orders', component: OrdersListComponent },
+      { path: 'orders/:id', component: OrdersDetailComponent },
 
       { path: 'users', component: UsersListComponent },
       { path: 'users/form', component: UsersFormComponent },
