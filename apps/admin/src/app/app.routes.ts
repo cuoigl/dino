@@ -23,7 +23,7 @@ export const appRoutes: Route[] = [
     component: ShellComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'dashboard', component: DashboardComponent },
+      { path: '', component: DashboardComponent },
 
       { path: 'products', component: ProductsListComponent },
       { path: 'products/form', component: ProductsFormComponent },
@@ -40,5 +40,10 @@ export const appRoutes: Route[] = [
       { path: 'users/form', component: UsersFormComponent },
       { path: 'users/form/:id', component: UsersFormComponent },
     ],
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
   },
 ];
