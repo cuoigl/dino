@@ -15,6 +15,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { UiModule } from '@dino/ui';
 
 import { AccordionModule } from 'primeng/accordion';
+import { NavComponent } from './shared/nav/nav.component';
+import { ProductsModule } from '@dino/products';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { AccordionModule } from 'primeng/accordion';
     ProductListComponent,
     HeaderComponent,
     FooterComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    UiModule,
     AccordionModule,
+    UiModule,
+    ProductsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -15,7 +15,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "dino",
+            "prefix": "dinoshop",
             "style": "camelCase"
           }
         ],
@@ -23,7 +23,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "dino",
+            "prefix": "dinoshop",
             "style": "kebab-case"
           }
         ],
