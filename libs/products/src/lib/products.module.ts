@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import { ProductsSearchComponent } from './components/products-search/products-search.component';
 import { CategoriesBannerComponent } from './components/categories-banner/categories-banner.component';
@@ -18,6 +19,10 @@ const routes: Routes = [
     path: 'products',
     component: ProductsListComponent,
   },
+  {
+    path: 'category/:categoryid',
+    component: ProductsListComponent,
+  },
 ];
 
 @NgModule({
@@ -27,6 +32,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ButtonModule,
     CheckboxModule,
+    FormsModule,
   ],
   declarations: [
     ProductsSearchComponent,

@@ -10,8 +10,5 @@ import { Product } from '../../models/product';
 export class ProductsItemComponent implements OnInit {
   @Input() product: Product;
 
-  // constructor() {}
-  ngOnInit() {
-    console.log(this.product);
-  }
+  ngOnInit() {}
 }
