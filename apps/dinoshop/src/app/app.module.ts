@@ -8,7 +8,6 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ProductListComponent } from './pages/product-list/product-list.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
@@ -22,7 +21,6 @@ import { ProductsModule } from '@dino/products';
   declarations: [
     AppComponent,
     HomePageComponent,
-    ProductListComponent,
     HeaderComponent,
     FooterComponent,
     NavComponent,
