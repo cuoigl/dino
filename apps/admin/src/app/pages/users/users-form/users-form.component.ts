@@ -125,7 +125,7 @@ export class UsersFormComponent implements OnInit {
     this.form = this.formBuilder.group({
       name: ['', Validators.required],
       password: ['', Validators.required],
-      email: ['', Validators.required && Validators.email],
+      email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
       isAdmin: [false],
       street: [''],
