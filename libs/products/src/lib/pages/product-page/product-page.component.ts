@@ -41,7 +41,6 @@ export class ProductPageComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.endSubs$))
       .subscribe((product) => {
         this.product = product;
-        console.log(this.product);
       });
   }
 }

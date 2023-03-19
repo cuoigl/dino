@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
+import { UiModule } from '@dino/ui';
+
 import { ProductsSearchComponent } from './components/products-search/products-search.component';
 import { CategoriesBannerComponent } from './components/categories-banner/categories-banner.component';
 import { ProductsItemComponent } from './components/products-item/product-item.component';
@@ -36,6 +38,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     HttpClientModule,
+    UiModule,
     RouterModule.forChild(routes),
     ButtonModule,
     CheckboxModule,
