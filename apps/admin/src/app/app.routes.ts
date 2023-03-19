@@ -14,10 +14,14 @@ import { UsersListComponent } from './pages/users/users-list/users-list.componen
 import { UsersFormComponent } from './pages/users/users-form/users-form.component';
 import { OrdersDetailComponent } from './pages/orders/orders-detail/orders-detail.component';
 
+//Auth
+import { AuthGuard } from '@dino/users';
+
 export const appRoutes: Route[] = [
   {
     path: '',
     component: ShellComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
 
