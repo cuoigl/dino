@@ -7,15 +7,21 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 
+//Pages
 import { HomePageComponent } from './pages/home-page/home-page.component';
+
+//Shared
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
-import { UiModule } from '@dino/ui';
-
-import { AccordionModule } from 'primeng/accordion';
 import { NavComponent } from './shared/nav/nav.component';
+
+//Modules
+import { UiModule } from '@dino/ui';
+import { OrdersModule } from '@dino/orders';
 import { ProductsModule } from '@dino/products';
+
+//PrimeNG
+import { AccordionModule } from 'primeng/accordion';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,7 @@ import { ProductsModule } from '@dino/products';
     AccordionModule,
     UiModule,
     ProductsModule,
+    OrdersModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

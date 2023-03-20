@@ -1,7 +1,7 @@
 <div class="product-item" *ngIf="product">
   <div class="product-item-wrapper">
     <img
-      [routerLink]="'products/' + product.id"
+      (click)="selectProduct(product.id)"
       [src]="product.image"
       class="image"
     />
