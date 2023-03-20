@@ -1,6 +1,8 @@
 import { createAction, props } from '@ngrx/store';
 import { UsersEntity } from './users.models';
 
+export const buildUserSession = createAction('[Users] Build User Session');
+
 export const initUsers = createAction('[Users Page] Init');
 
 export const loadUsersSuccess = createAction(

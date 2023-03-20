@@ -1,3 +1,4 @@
+import { UsersFacade } from './../state/users.facade';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -17,7 +18,7 @@ declare const require: (arg0: string) => countriesLib.LocaleData;
 export class UsersService {
   apiURLUsers = environment.apiUrl + 'users';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private usersFacade: UsersFacade) {
     countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
   }
 
