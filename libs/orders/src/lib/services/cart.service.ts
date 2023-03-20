@@ -29,6 +29,15 @@ export class CartService {
     return cart;
   }
 
+  emptyCart() {
+    const intialCart = {
+      items: [],
+    };
+    const intialCartJson = JSON.stringify(intialCart);
+    localStorage.setItem(CART_KEY, intialCartJson);
+    this.cart$.next(intialCart);
+  }
+
   setCartItem(cartItem: CartItem, updateCartItem?: boolean): Cart {
     const cart = this.getCart();
     const cartItemExist = cart.items.find(

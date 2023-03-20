@@ -20,6 +20,7 @@ import { MessagesComponent } from './shared/messages/messages.component';
 import { UiModule } from '@dino/ui';
 import { OrdersModule } from '@dino/orders';
 import { ProductsModule } from '@dino/products';
+import { UsersModule } from '@dino/users';
 
 //PrimeNG
 import { AccordionModule } from 'primeng/accordion';
@@ -44,6 +45,7 @@ import { ToastModule } from 'primeng/toast';
     ProductsModule,
     OrdersModule,
     ToastModule,
+    UsersModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent],

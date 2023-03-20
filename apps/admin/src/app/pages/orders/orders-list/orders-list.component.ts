@@ -4,9 +4,8 @@ import { Router } from '@angular/router';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
 
-import { Order, OrdersService } from '@dino/orders';
+import { Order, OrdersService, ORDER_STATUS } from '@dino/orders';
 
-import { ORDER_STATUS } from '../order.constants';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
