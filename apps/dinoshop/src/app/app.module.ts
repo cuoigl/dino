@@ -14,6 +14,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavComponent } from './shared/nav/nav.component';
+import { MessagesComponent } from './shared/messages/messages.component';
 
 //Modules
 import { UiModule } from '@dino/ui';
@@ -22,6 +23,8 @@ import { ProductsModule } from '@dino/products';
 
 //PrimeNG
 import { AccordionModule } from 'primeng/accordion';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,7 @@ import { AccordionModule } from 'primeng/accordion';
     HeaderComponent,
     FooterComponent,
     NavComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,8 +43,9 @@ import { AccordionModule } from 'primeng/accordion';
     UiModule,
     ProductsModule,
     OrdersModule,
+    ToastModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
