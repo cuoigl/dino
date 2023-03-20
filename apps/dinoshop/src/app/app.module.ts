@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +23,7 @@ import { MessagesComponent } from './shared/messages/messages.component';
 import { UiModule } from '@dino/ui';
 import { OrdersModule } from '@dino/orders';
 import { ProductsModule } from '@dino/products';
-import { UsersModule } from '@dino/users';
+import { UsersModule, JwtInterceptor } from '@dino/users';
 
 //PrimeNG
 import { AccordionModule } from 'primeng/accordion';
@@ -51,7 +52,14 @@ import { ToastModule } from 'primeng/toast';
     ToastModule,
     UsersModule,
   ],
-  providers: [MessageService],
+  providers: [
+    MessageService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

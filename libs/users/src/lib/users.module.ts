@@ -29,7 +29,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     InputTextModule,
     ButtonModule,
-    StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.usersReducer),
+    StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.reducer),
     EffectsModule.forFeature([UsersEffects]),
   ],
   declarations: [LoginComponent],
