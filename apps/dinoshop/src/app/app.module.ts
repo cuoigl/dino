@@ -1,3 +1,5 @@
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -40,6 +42,8 @@ import { ToastModule } from 'primeng/toast';
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
     AccordionModule,
     UiModule,
     ProductsModule,

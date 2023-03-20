@@ -61,4 +61,6 @@ export class UsersService {
       .get<number>(`${this.apiURLUsers}/get/count`)
       .pipe(map((objectValue: any) => objectValue.userCount));
   }
+
+  initAppSession() {}
 }
