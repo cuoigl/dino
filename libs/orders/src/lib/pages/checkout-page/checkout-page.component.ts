@@ -1,17 +1,17 @@
-import { take } from 'rxjs/operators';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UsersService } from '@dino/users';
+
 import { Cart } from '../../models/cart';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { Order } from '../../models/order';
 import { OrderItem } from '../../models/order-item';
 import { CartService } from '../../services/cart.service';
 import { OrdersService } from '../../services/orders.service';
-import { ORDER_STATUS } from '../../order.constants';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'orders-checkout-page',
@@ -97,19 +97,21 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
   }
 
   private _autoFillUserData() {
-    this.usersService.observeCurrentUser().subscribe((user) => {
-      console.log(user);
-      if (user) {
-        this.userId = user.id;
-        this.checkoutForm.name.setValue(user.name);
-        this.checkoutForm.email.setValue(user.email);
-        this.checkoutForm.phone.setValue(user.phone);
-        this.checkoutForm.city.setValue(user.city);
-        this.checkoutForm.country.setValue(user.country);
-        this.checkoutForm.zip.setValue(user.zip);
-        this.checkoutForm.apartment.setValue(user.apartment);
-      }
-    });
+    this.usersService
+      .observeCurrentUser()
+      .pipe(takeUntil(this.endSubs$))
+      .subscribe((user) => {
+        if (user) {
+          this.userId = user.id;
+          this.checkoutForm.name.setValue(user.name);
+          this.checkoutForm.email.setValue(user.email);
+          this.checkoutForm.phone.setValue(user.phone);
+          this.checkoutForm.city.setValue(user.city);
+          this.checkoutForm.country.setValue(user.country);
+          this.checkoutForm.zip.setValue(user.zip);
+          this.checkoutForm.apartment.setValue(user.apartment);
+        }
+      });
   }
 
   private _getCartItems() {

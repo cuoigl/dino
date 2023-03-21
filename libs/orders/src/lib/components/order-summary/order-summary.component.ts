@@ -13,12 +13,17 @@ import { OrdersService } from '../../services/orders.service';
 export class OrderSummaryComponent implements OnInit, OnDestroy {
   endSubs$: Subject<any> = new Subject();
   totalPrice: number;
+  isCheckout = false;
 
   constructor(
     private cartService: CartService,
     private ordersService: OrdersService,
     private router: Router
-  ) {}
+  ) {
+    this.router.url.includes('checkout')
+      ? (this.isCheckout = true)
+      : (this.isCheckout = false);
+  }
 
   ngOnInit(): void {
     this._getOrderSummary();
@@ -45,7 +50,7 @@ export class OrderSummaryComponent implements OnInit, OnDestroy {
     });
   }
 
-  checkOut() {
+  navigateToCheckout() {
     this.router.navigate([`checkout`]);
   }
 }
